@@ -1,0 +1,1 @@
+from .aiotemplate import open_template, error_404
