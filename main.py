@@ -1,7 +1,7 @@
 from typing import Optional
 from config import CONFIG
 
-from utils import open_template, error_404
+from utils import open_markdown, open_template, error_404
 
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
@@ -9,6 +9,7 @@ from uvicorn import Config, Server
 
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
+app.mount("/markdowns", StaticFiles(directory="markdowns"), name="markdowns")
 
 @app.get("/")
 async def root():
